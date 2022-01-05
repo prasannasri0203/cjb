@@ -1,0 +1,161 @@
+/* your styles go here */
+.no-margin-bottom {
+    display: inline;
+}
+form.custom-form {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -1px 0 2px rgba(0,0,0,0.05);
+}
+form.custom-form input[type="submit"] {
+    color: #fff;
+    background-color: #33b35a;
+    border-color: #33b35a;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+}
+form.custom-form label {
+    font-weight: 300 !important;
+}
+.error {
+    font-size: 13px;
+    color: #f00;
+}
+.dataTables_wrapper td a {
+    margin-top: 10px;
+    width: 120px;
+}
+.dataTables_wrapper table tr td:nth-child(4)  {
+    width: 18%;
+    text-align: center;
+}
+.modal-dialog .modal-content {
+    /* padding: 15px; */
+    border-radius: 8px;
+}
+ 
+.modal-dialog .modal-content .modal-header button.close {
+    opacity: 1;
+     
+}
+.modal-dialog .modal-content label {
+    font-size: 0.9em;
+    color: #777;
+    font-weight: 300;
+}
+.modal-dialog .modal-content form {
+    padding: 15px;
+}
+.modal-dialog .modal-content .form-group {
+    margin-bottom: 15px !important;
+}
+.modal-dialog .modal-content input[type="submit"] {
+    background-color: #33b35a;
+    border-color: #33b35a;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.modal-dialog .modal-content select {
+    border: 1px solid #ccc;
+    padding: 7px 8px;
+}.modal-dialog .modal-content .form-group.mb-0 {
+    margin-bottom: 0px !important;
+}
+.modal.show .modal-dialog input[type="text"] {
+    padding: 4px;
+}
+div#product_table_wrapper table tr td:nth-child(3) {
+    width: 17%;
+    text-align: center;
+}
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 15px;
+}
+form#product_add_form {
+    padding: 40px 10px;
+}
+.tab.card-body label {
+    font-size: 0.9em;
+    color: #777;
+    font-weight: 300;
+}
+
+.form-group.custom-txt-align {
+    margin-top: 11px;
+}
+button#nextBtn {
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+form#product_add_form button#add_element_btn {
+    margin-bottom: 12px;
+}
+.tab.append_class p input {
+    margin: 4px 0px;
+    padding: 4px 6px;
+    border: 1px solid #ddd;
+}
+label.frm-lbl {
+    margin-bottom: 0px !important;
+}input#product_colour {
+    padding-left: 37px;
+}
+.minicolors-theme-bootstrap .minicolors-swatch {
+    top: 7px !important;
+    left: 5px !important;
+
+}
+.append-form {
+    padding: 15px;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.1), -1px 0 2px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    background: #fafafa;
+}
+.tab.append_class p input[type="file"] {
+    background: #fcfce5;
+}
+input.form-control.numeric_only {
+    border: 1px solid #000;
+}
+button.btn.btn-success.remove_button {
+    margin-left: auto;
+    margin-top: -6px;
+}
+input.jquery_col_pick.minicolors-input {
+    padding-left: 37px !important;
+}
+
+
+table#featured_video_table tr.odd a,
+table#featured_video_table tr.even a {
+    width: 90px !important;
+    height: 31px;
+}
+table#featured_video_table tr.odd td:nth-child(3),
+table#featured_video_table tr.even td:nth-child(3) {
+    text-align: center;
+}
+table#featured_video_table tr.odd a:nth-child(2),
+table#featured_video_table tr.even a:nth-child(2) {
+    margin-right: 4px;
+}
+
+form.custom-form label {
+
+    font-size: 0.9em;
+    color: #777;
+    font-weight: 300;
+}
+.avatar_img_size {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+}

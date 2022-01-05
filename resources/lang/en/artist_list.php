@@ -1,0 +1,30 @@
+<?php
+
+return[
+    'Artists Shops' => 'Artists Shops',
+    'Best Sellers' => 'Best Sellers',
+    'Filter' => 'Filter',
+    'Filter By' => 'Filter By',
+    'Category' => 'Category',
+    'All' => 'All',
+    'Size' => 'Size',
+    'Sort by' => 'Sort by',
+    'Best Sellers' => 'Best Sellers',
+    'Most Recent' => 'Most Recent',
+    'Yesterday' => 'Yesterday',
+    'Last Month' => 'Last Month',
+    'Popular' => 'Popular',
+    'T-shirts' => 'T-shirts',
+    'Hoodies' => 'Hoodies',
+    'Baseball Caps' => 'Baseball Caps',
+    'Mugs' => 'Mugs',
+    'Coasters' => 'Coasters',
+    'Phone Covers' => 'Phone Covers',
+    'Wall Art' => 'Wall Art',
+    'Postcards' => 'Postcards',
+    'Baby Grows' => 'Baby Grows',
+    'Clear all' => 'Clear all',
+    'APPLY' => 'APPLY',
+    'Artist Name' => 'Artist Name',
+    'Artist List' => 'Artist List'
+];

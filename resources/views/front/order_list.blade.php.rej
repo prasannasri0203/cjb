@@ -1,0 +1,474 @@
+diff a/resources/views/front/order_list.blade.php b/resources/views/front/order_list.blade.php	(rejected hunks)
+@@ -1,359 +1,15 @@
+-<!DOCTYPE html>
+-<html lang="en">
+-
+-<head>
+-    <title>Cool Jellybean</title>
+-    <meta charset="utf-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1">
+-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+-    <link rel="stylesheet" href="css/style.css" type="text/css">
+-    <link rel="stylesheet" href="css/responsive.css" type="text/css">
+-    <link rel="stylesheet" type="text/css" href="css/slick.css">
+-    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
+-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+-    <!-- Font Awesome -->
+-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+-    <link rel="stylesheet" href="css/font-awesome.min.css">
+-    <script src="js/jquery-2.2.3.min.js" type="text/javascript"></script>
+-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.js"></script>
+-    <script type="text/javascript" src="js/slick.js"></script>
+-    <script src="js/custom.js"></script>
+-    <script type="text/javascript">
+-        var win_width = $(window).width();
+-
+-        $(document).on('ready', function() {
+-
+-            if ($(window).width() < 991) {
+-                $('.slider').slick({
+-                    infinite: true,
+-                    slidesToShow: 3,
+-                    slidesToScroll: 1
+-                });
++@extends('front.app')
+ 
++@section('title', '')
+ 
+-            } else {
+-                if ($('.slider').hasClass('slick-initialized')) {
+-                    $('.slider').slick('unslick');
+-                }
+-            }
+-
+-        });
+-
+-        $(window).resize(function() {
+-            if ($(window).width() < 991) {
+-
+-                $('.slider').slick({
+-                    infinite: true,
+-                    slidesToShow: 3,
+-                    slidesToScroll: 1
+-                });
+-
+-
+-            } else {
+-                if ($('.slider').hasClass('slick-initialized')) {
+-                    $('.slider').slick('unslick');
+-                }
+-            }
+-        });
+-    </script>
+-    <script>
+-        /*search tab*/
+-        $(document).ready(function() {
+-            $('.desktop_group').click(function() {
+-                $(".desktop_search_tab").slideToggle();
+-                $(".mob_search_tab").hide();
+-            });
+-            // $('.sub_search').click(function() {
+-            //     $(".desktop_search_tab").slideToggle();
+-            //     $(".mob_search_tab").hide();
+-            // });
+-            $('.mobile_group').click(function() {
+-                $(".mob_search_tab").slideToggle();
+-                $(".search_tab").hide();
+-            });
+-
+-
+-            $('.ipad_new_search .ipad_search').click(function() {
+-                $(".search_group input.form-control").show();
+-                if ($(".ipad_abs").length) {
+-                    $('.ipad_new_search').removeClass('ipad_abs');
+-                    //alert('bye' + $(".ipad_abs").length);
+-                    $(".search_group input.form-control").hide();
+-
+-                } else {
+-                    $('.ipad_new_search').addClass('ipad_abs');
+-                    // alert('hi' + $(".ipad_abs").length);
+-                    $(".search_group input.form-control").show();
+-
+-
+-                }
+-
+-
+-
+-
+-            });
+-
+-
+-
+-        });
+-        /*search tab*/
+-    </script>
+-        <style>
+-            @media screen and (min-width:768px) and (max-width: 1024px) {
+-                .mobiformi {
+-                    display: none;
+-                }
+-                .deskformi {
+-                    display: block;
+-                }
+-                .filtersec.order_filter.firstfilter>.row {
+-                    display: flex;
+-                    align-items: center;
+-                }
+-                .filtersec.order_filter .filerby h3 {
+-                    margin: 0px;
+-                }
+-            }
+-            #reset{ 
+-                    display: block;
+-                    background: #ff3636;
+-                    padding: 10px;
+-                    color: #fff;
+-                    border-radius: 5px;
+-            }
+-        </style>
+-</head>
+-
+-<body>
+-    <!--header-->
+-
+-    <header>
+-        <div class="container">
+-            <div class="row mobheader">
++@section('header_script')
++@endsection
+ 
+-                <div class="col-xs-3">
+-                    <a href="#">
+-                        <img src="images/logo.png" class="img-responsive" />
+-                    </a>
+-                </div>
+-                <div class="col-xs-9">
+-                    <ul class="nav navbar-nav navbar-right">
+-                        <li>
+-                            <div class="dropdown mrs_hinch">
+-                                <img src="images/profile-icon.png" class="profile_ico" />
+-                                <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">MRS HINCH
+-                                </button>
+-                                <ul class="dropdown-menu">
+-                                    <li>
+-                                        <a href="dashboard_artist.html"> Home </a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="orders.html">Orders</a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="viewshop.html">View Shop</a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="CreateStation_1A.html">Creation Station</a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="edit_profile.html">Edit Profile</a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="media_gallery.html">Media Gallery</a>
+-                                    </li>
+-                                    <li class="sign_out">
+-                                        <a href="#">Sign Out</a>
+-                                    </li>
+-                                </ul>
+-                            </div>
+-                        </li>
+-                        <li>
+-                            <a href="#">
+-                                <i class="fa fa-heart" aria-hidden="true"></i>
+-                            </a>
+-                        </li>
+-                        <li>
+-                            <a href="#">
+-                                <i class="fas fa-shopping-basket img-responsive" style="color:#08adea" aria-hidden="true"></i>
+-                            </a>
+-                            <span>2</span>
+-                        </li>
+-                    </ul>
+-                </div>
+-            </div>
+-            <div class="row">
+-                <div class="col-lg-12 mobdown">
+-                    <nav class="navbar">
+-                        <div class="container-fluid">
+-                            <div class="navbar-header">
+-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+-                                    <span class="icon-bar"></span>
+-                                    <span class="icon-bar"></span>
+-                                    <span class="icon-bar"></span>
+-                                </button>
+-                                <a class="navbar-brand" href="homepage.html">
+-                                    <img src="images/logo.png" class="img-responsive" />
+-                                </a>
+-                                 <!--newlyadded-->
+-                                 <form action="/action_page.php">
+-                                    <div class="input-group search_group mobile_group">
+-                                        <input type="text" class="form-control" placeholder="Search" name="search">
+-                                        <div class="input-group-btn">
+-                                            <button class="btn btn-default sub_search" type="submit">
+-                                                <i class="fa fa-search" aria-hidden="true"></i>
+-                                            </button>
+-                                        </div>
++@section('body_class', '')
+ 
+-                                    </div>
+-                                    <!--search_tab-->
+-                                    <div class="mob_search_tab">
+-                                        <div class="search_wrap">
+-                                            <label>Search:</label>
+-                                            <div class="search_lst">
+-                                                <input type="radio" id="Products" name="drone" value="Products" checked>
+-                                                <label for="Products">Products</label>
+-                                            </div>
+-                                            <div class="search_lst">
+-                                                <input type="radio" id="Artists" name="drone" value="Artists" checked>
+-                                                <label for="Artists">Artists</label>
+-                                            </div>
+-                                        </div>
+-                                    </div>
+-                                    <!--search_tab-->
+-
+-                                </form>
+-                                <!--newlyadded-->
+-                            </div>
+-                            <div class="collapse navbar-collapse" id="myNavbar">
+-                                <ul class="nav navbar-nav links">
+-                                    <li>
+-                                        <a href="homepage.html">HOME</a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="CoolJellyBean_Merch.html">MERCH</a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="faq.html">FAQ</a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="#">IDEAS</a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="artist_page.html">ARTISTS SHOPS</a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="cooljellybean_help.html">HELP</a>
+-                                    </li>
+-                                    <li>
+-
+-                                        <div class="desktop_search">
+-                                            <form action="/action_page.php">
+-                                                <div class="input-group search_group desktop_group">
+-                                                    <input type="text" class="form-control" placeholder="Search" name="search">
+-                                                    <div class="input-group-btn">
+-                                                        <button class="btn btn-default sub_search" type="submit">
+-                                                            <i class="fa fa-search" aria-hidden="true"></i>
+-                                                        </button>
+-                                                    </div>
+-
+-                                                </div>
+-                                                <!--search_tab-->
+-                                                <div class="desktop_search_tab">
+-                                                    <div class="search_wrap">
+-                                                        <label>Search:</label>
+-                                                        <div class="search_lst">
+-                                                            <input type="radio" id="Products" name="drone" value="Products" checked>
+-                                                            <label for="Products">Products</label>
+-                                                        </div>
+-                                                        <div class="search_lst">
+-                                                            <input type="radio" id="Artists" name="drone" value="Artists" checked>
+-                                                            <label for="Artists">Artists</label>
+-                                                        </div>
+-                                                    </div>
+-                                                </div>
+-                                                <!--search_tab-->
+-                                            </form>
+-                                        </div>
+-
+-                                        <div class="ipad_new_search">
+-                                            <form action="/action_page.php">
+-                                                <div class="input-group search_group ">
+-                                                    <input type="text" class="form-control desktop_group" placeholder="Search" name="search">
+-                                                    <div class="input-group-btn">
+-                                                        <button class="btn btn-default sub_search ipad_search" type="button">
+-                                                            <i class="fa fa-search" aria-hidden="true"></i>
+-                                                        </button>
+-                                                    </div>
++@section('main_div_class', 'homepg_Cont')
+ 
+-                                                </div>
+-                                                <!--search_tab-->
+-                                                <div class="desktop_search_tab">
+-                                                    <div class="search_wrap">
+-                                                        <label>Search:</label>
+-                                                        <div class="search_lst">
+-                                                            <input type="radio" id="Products" name="drone" value="Products" checked>
+-                                                            <label for="Products">Products</label>
+-                                                        </div>
+-                                                        <div class="search_lst">
+-                                                            <input type="radio" id="Artists" name="drone" value="Artists" checked>
+-                                                            <label for="Artists">Artists</label>
+-                                                        </div>
+-                                                    </div>
+-                                                </div>
+-                                                <!--search_tab-->
+-                                            </form>
+-                                        </div>
+-
+-                                    </li>
+-                                </ul>
+-                                <ul class="nav navbar-nav navbar-right">
+-
+-                                    <li>
+-                                        <div class="dropdown mrs_hinch">
+-                                            <img src="images/profile-icon.png" class="profile_ico" />
+-                                            <button class="btn btn-primary dropdown-toggle" data-toggle="dropdown">USERNAME
+-                                            </button>
+-                                            <ul class="dropdown-menu">
+-                                                <li>
+-                                                    <a href="dashboard_customer.html"> Home </a>
+-                                                </li>
+-                                                <li>
+-                                                    <a href="customer_orders.html">Orders</a>
+-                                                </li>
+-
+-                                                <li>
+-                                                    <a href="customer_edit_profile.html">Edit Profile</a>
+-                                                </li>
+-                                                <li>
+-                                                    <a href="customer_addressbook.html">Address Book</a>
+-                                                </li>
+-                                                <li class="sign_out">
+-                                                    <a href="#">Sign Out</a>
+-                                                </li>
+-                                            </ul>
+-                                        </div>
+-                                    </li>
+-                                    <li>
+-                                        <a href="#">
+-                                            <i class="fa fa-heart" aria-hidden="true"></i>
+-                                        </a>
+-                                    </li>
+-                                    <li>
+-                                        <a href="#">
+-                                            <i class="fas fa-shopping-basket img-responsive" style="color:#08adea" aria-hidden="true"></i>
+-                                        </a>
+-                                        <span>2</span>
+-                                    </li>
+-                                </ul>
+-                            </div>
+-                        </div>
+-                    </nav>
+-                </div>
+-            </div>
+-        </div>
+-    </header>
+-    <!--/.header-->
++@section('content')
+ 
+     <!--dashboard artist-->
+     <section>
+@@ -524,50 +180,8 @@
+     </section>
+     <!--/.dashboard artist-->
+ 
+-    <!--footer-->
+-    <footer>
+-        <div class="container">
+-            <div class="row">
+-                <div class="col-sm-3">
+-                    <img src="images/footer_logo.png" class="img-responsive inverlogo" />
+-                </div>
+-                <div class="col-sm-6 footcenter">
+-                    <a href="#">
+-                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+-                    </a>
+-                    <a href="#">
+-                        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+-                    </a>
+-                    <a href="#">
+-                        <i class="fa fa-instagram"></i>
+-                    </a>
+-                    <a href="#">
+-                        <i class="fa fa-pinterest-square"></i>
+-                    </a>
+-                    <p>© Cool Jelly Bean 2019</p>
+-                    <div class="desktop_foot_link">
+-                        <a href="#" class="link">Shipping & Returns </a> <a class="link">|</a>
+-                        <a href="#" class="link"> Terms & Conditions </a><a class="link">|</a>
+-                        <a href="#" class="link"> Privacy & Cookies</a>
+-                    </div>
+-                    <div class="mobl_foot_link">
+-                        <p> <a href="#" class="link">Shipping & Returns </a> <a class="link">|</a>
+-                            <a href="#" class="link"> Terms & Conditions </a></p>
+-                        <p><a href="#" class="link"> Privacy & Cookies</a></p>
+-                    </div>
+-
+-                </div>
+-                <div class="col-sm-3">
+-                    <div class="foot_pay">
+-                        <h3>Secure Payments</h3>
+-                        <img src="images/pay.png" class="img-responsive" />
+-                    </div>
+-                </div>
+-            </div>
+-        </div>
+-    </footer>
+-    <!--/.footer-->
+-    <script src="js/bootstrap.min.js"></script>
++@endsection
++@section('footer_script')
+     <script>
+         $(document).ready(function() {
+ 
+@@ -596,16 +210,6 @@
+                 $('#from_date').datepicker('setEndDate', null);
+             });
+ 
+-            // $('.input-daterange').datepicker({
+-            //     todayBtn: 'linked',
+-            //     uiLibrary: 'bootstrap',
+-            //     format: 'yyyy-mm-dd',
+-            //     autoclose: true
+-            // }).on('change', function(){
+-            //     $('.datepicker').hide();
+-            //     $( "#order_filter_form" ).submit();
+-            // }); ;
+-
+             $( "#status_val , #sort_by").change(function(e) {
+                 e.preventDefault();
+                 $( "#order_filter_form" ).submit();
+@@ -657,8 +261,28 @@
+             }
+         }
+     </script>
+-
+-
+-</body>
+-
+-</html>
+\ No newline at end of file
++    <style>
++            @media screen and (min-width:768px) and (max-width: 1024px) {
++                .mobiformi {
++                    display: none;
++                }
++                .deskformi {
++                    display: block;
++                }
++                .filtersec.order_filter.firstfilter>.row {
++                    display: flex;
++                    align-items: center;
++                }
++                .filtersec.order_filter .filerby h3 {
++                    margin: 0px;
++                }
++            }
++            #reset{ 
++                    display: block;
++                    background: #ff3636;
++                    padding: 10px;
++                    color: #fff;
++                    border-radius: 5px;
++            }
++    </style>
++@endsection
+\ No newline at end of file
